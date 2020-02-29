@@ -1,0 +1,19 @@
+{
+  "name": "lhbsword",
+  "version": "1.4.0",
+  "description": "菜鸟起飞之脚手架学习",
+  "main": "index.js",
+  "bin": {
+    "sword": "bin/sword"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "inquirer": "^7.0.4"
+  }
+}

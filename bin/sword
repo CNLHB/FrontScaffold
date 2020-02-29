@@ -1,0 +1,49 @@
+#!/usr/bin/env node --harmony
+
+'use strict'
+// 定义脚手架的文件路径
+process.env.NODE_PATH = __dirname + '/../node_modules/'
+const program = require('commander')
+// 定义当前版本
+program
+    .version(require('../package').version)
+// 定义使用方法
+program
+    .usage('<command>')
+
+program
+    .command('add')
+    .description('Add a new template')
+    .alias('a')
+    .action(async () => {
+        await require('../command/add')()
+    })
+program
+    .command('list')
+    .description('List all the templates')
+    .alias('l')
+    .action(async () => {
+        await require('../command/list')()
+    })
+program
+    .command('init')
+    .description('Generate a new project')
+    .alias('i')
+    .action(async () => {
+        await require('../command/init')()
+    })
+program
+    .command('delete')
+    .description('Delete a template')
+    .alias('d')
+    .action(async () => {
+        await require('../command/delete')()
+    })
+// 数组的第一个元素process.argv[0]——返回启动Node.js进程的可执行文件所在的绝对路径
+// 第二个元素process.argv[1]——为当前执行的JavaScript文件路径
+// 剩余的元素为其他命令行参数
+program.parse(process.argv)
+//无参数时，输出帮助
+if (!program.args.length) {
+    program.help()
+}
